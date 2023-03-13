@@ -1,13 +1,11 @@
 import React from "react";
 import { addToCart, decreaseFromCart } from '../actions';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import './card.css'
 
 export function Card({ id, stock, product, name, image, price, rating, numReviews}){
-
-  const cart = useSelector((state) => state.cart);
 
   const dispatch = useDispatch()
 
