@@ -16,8 +16,11 @@
   align-content: center;
 }
 footer{
+  width: 100%;
+  min-width: 100vh;
   margin-top: 2%;
   margin-bottom: 1%;
+  text-align: center;
   color: #1b004b;
   font-size: 30px;
   font-weight: 700;

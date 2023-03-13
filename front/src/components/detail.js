@@ -6,7 +6,7 @@ import { Nav } from './navbar';
 import './detail.css'
 
 
-export function Detail(props) {
+export default function Detail(props) {
   const dispatch = useDispatch();
   const detail = useSelector(state => state.detail);
 

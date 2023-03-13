@@ -12,7 +12,7 @@ import { getProducts } from '../actions';
 import './home.css'
 
 
-export function Home() {
+export default function Home() {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
   

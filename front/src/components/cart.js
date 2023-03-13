@@ -6,7 +6,7 @@ import { Nav } from './navbar';
 
 import './cart.css'
 
-export function Cart() {
+export default function Cart() {
   const cart = useSelector((state) => state.cart);
 
   const dispatch = useDispatch()
@@ -69,12 +69,12 @@ export function Cart() {
           <button 
           className='boton_cart'
           onClick={() => handleAddToCart(product)}>
-            Agregar al Carrito
+            Add item to cart
           </button>
           <button 
           className='boton_cart'
           onClick={() => handledecrease(product._id)}>
-            Eliminar
+            Remove item from cart
           </button>
 
         </div>
@@ -85,5 +85,3 @@ export function Cart() {
     </div>
   );
 }
-
-export default Cart;

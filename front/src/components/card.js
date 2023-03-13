@@ -30,6 +30,10 @@ export function Card({ id, stock, product, name, image, price, rating, numReview
           <p className="parrafo">{price}</p>
           <p className="parrafo">{rating}</p>
           <p className="parrafo">{numReviews}</p>
+          <button 
+          className="boton_card">
+            Out of stock
+          </button>
         </div>
       ) : (
         <div className="cards">
