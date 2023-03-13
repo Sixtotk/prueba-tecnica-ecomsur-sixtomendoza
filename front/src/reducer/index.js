@@ -27,7 +27,7 @@ function rootReducer(state = initialState, action){
       if (index !== -1) {
         const newQuantity = updatedCart[index].cantidad + 1;
         if ( newQuantity > product.countInStock) {
-          alert('No hay suficiente stock disponible');
+          alert('NOT ENOUGH STOCK AVAILABLE');
           return state;
         }
         updatedCart[index].cantidad = newQuantity;
