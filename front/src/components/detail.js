@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getDetailProducts, addToCart, decreaseFromCart } from '../actions';
 import { Nav } from './navbar';
 
+import './detail.css'
+
 
 export function Detail(props) {
   const dispatch = useDispatch();
@@ -23,21 +25,100 @@ export function Detail(props) {
   return (
     <div>
       <Nav/>
-     {<div className="container">
-        <div className="cardDetail">
-        <h2 className="detail_name">{detail.name}</h2>
-        <img src={`http://localhost:5000${detail.image}`} alt={detail.name}/>
-        <p>{detail.description}</p>
-        <h3>{detail.brand}</h3>
-        <h4>{`Price: ${detail.price}`}</h4>
-        <p>{`Rating: ${detail.rating}`}</p>
-        <p>{`Reviews: ${detail.numReviews}`}</p>
-        <h6>{`Stock: ${detail.countInStock}`}</h6>
-        <button onClick={() => handleAddToCart(detail)}>Agregar al Carrito</button>
-          <button onClick={() => handledecrease(detail._id)}>Eliminar</button>
-        </div>
-      </div>     
-      }
+      {detail.countInStock === 0 ? (
+        <div className="container_detail">
+
+          <div className="cardDetail">
+
+            <div className='detail_name_image'>
+
+              <h2 className="detail_name">
+                {detail.name}
+              </h2>
+              <img 
+              className='detail_image'
+              src={`http://localhost:5000${detail.image}`} alt={detail.name}/>
+
+            </div>
+
+            <div className='informacion'>
+
+              <p className="detail_description">
+                {detail.description}
+               </p>
+              <h4>
+                {detail.brand}
+              </h4>
+              <h5 className='detail_price'>
+                {`Price: ${detail.price}`}
+              </h5>
+              <h4>
+                {`Stock: ${detail.countInStock}`}
+              </h4>
+              <p className="detail_p">
+                {`Rating: ${detail.rating}`}
+              </p>
+              <p className="detail_p">
+                {`Reviews: ${detail.numReviews}`}
+              </p>
+
+            </div>
+
+          </div>
+
+        </div> 
+      ) : (
+        <div className="container_detail">
+
+          <div className="cardDetail">
+
+            <div className='detail_name_image'>
+
+              <h2 className="detail_name">
+                {detail.name}
+              </h2>
+              <img 
+              className='detail_image'
+              src={`http://localhost:5000${detail.image}`} alt={detail.name}/>
+
+            </div>
+
+            <div className='informacion'>
+
+              <p className="detail_description">
+                {detail.description}
+              </p>
+              <h4>
+                {detail.brand}
+              </h4>
+              <h5 className='detail_price'>
+                {`Price: ${detail.price}`}
+              </h5>
+              <h4>
+                {`Stock: ${detail.countInStock}`}
+              </h4>
+              <p className="detail_p">
+                {`Rating: ${detail.rating}`}
+              </p>
+              <p className="detail_p">
+                {`Reviews: ${detail.numReviews}`}
+              </p>
+              <button 
+                className='detail_boton'
+                onClick={() => handleAddToCart(detail)}>
+                 Add item to cart
+              </button>
+              <button 
+              className='detail_boton'
+              onClick={() => handledecrease(detail._id)}>
+                Remove item from cart
+              </button>
+            </div>
+
+          </div>
+
+        </div>)}  
+
     </div>
   );
 }

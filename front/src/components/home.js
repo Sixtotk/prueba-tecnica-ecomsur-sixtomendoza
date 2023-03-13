@@ -8,6 +8,9 @@ import { Nav } from './navbar';
 //actions
 import { getProducts } from '../actions';
 
+//css
+import './home.css'
+
 
 export function Home() {
   const dispatch = useDispatch();
@@ -18,11 +21,11 @@ export function Home() {
   }, [dispatch]);
 
   return (
-    <div key='productos'>
+    <div className='home' key='home'>
       <Nav/>
-      
-      {products.map((product) => (
-        <Fragment key={product._id}>    
+      <div className='contenedor_cards'>
+        {products.map((product) => (
+          <Fragment key={product._id}>    
             <Card
             id ={product._id}
             stock={product.countInStock}
@@ -32,10 +35,8 @@ export function Home() {
             price={`Price: ${product.price}`}
             rating={`Rating: ${product.rating}`}
             numReviews={`Reviews: ${product.numReviews}`}/>
-        </Fragment>
-      ))}
-      <div>
-        
+          </Fragment>
+        ))}
       </div>
     </div>
   );

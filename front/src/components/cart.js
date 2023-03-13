@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { clearCart,  addToCart, decreaseFromCart } from '../actions';
 import { Nav } from './navbar';
 
+import './cart.css'
+
 export function Cart() {
   const cart = useSelector((state) => state.cart);
 
@@ -31,20 +33,51 @@ export function Cart() {
   return (
     <div>
       <Nav/>
+      <div className='contenedor_price_clear'>
+      
+          <h3 className='grand_total'>Grand total: ${getTotalPrice()}</h3>
+        <button 
+        className='boton_cart'
+        onClick={handleclearCart}>
+          Clear cart
+        </button>
+
+      </div>
+      <div className='contenedor_cart'>
       {cart.map((product) => (
-        <div key={product._id}>
-          <h3>{product.name}</h3>
-          <img src={`http://localhost:5000${product.image}`} alt={product.name} />
-          <p>Quantity: {product.cantidad}</p>
-          <p>Unit price: ${product.price.toFixed(2)}</p>
-          <p>Amount: ${(product.cantidad * product.price).toFixed(2)}</p>
-          <button onClick={() => handleAddToCart(product)}>Agregar al Carrito</button>
-          <button onClick={() => handledecrease(product._id)}>Eliminar</button>
+        <div 
+        className='cart'
+        key={product._id}>
+
+          <h3 className='cart_name'>{product.name}</h3>
+          <img 
+          className='cart_image'
+          src={`http://localhost:5000${product.image}`} 
+          alt={product.name} />
+          <p className='cart_p'>
+            Quantity: {product.cantidad}
+          </p>
+          <p className='cart_p'>
+            Unit price: ${product.price.toFixed(2)}
+          </p>
+          <p className='cart_p'>
+            Amount: ${(product.cantidad * product.price).toFixed(2)}
+          </p>
+          <button 
+          className='boton_cart'
+          onClick={() => handleAddToCart(product)}>
+            Agregar al Carrito
+          </button>
+          <button 
+          className='boton_cart'
+          onClick={() => handledecrease(product._id)}>
+            Eliminar
+          </button>
+
         </div>
       ))}
-      <h3>Grand total: ${getTotalPrice()}</h3>
+      </div>
       
-      <button onClick={handleclearCart}>Clear cart</button>
 
     </div>
   );
