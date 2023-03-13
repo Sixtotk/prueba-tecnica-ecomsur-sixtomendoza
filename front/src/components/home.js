@@ -38,6 +38,7 @@ export function Home() {
           </Fragment>
         ))}
       </div>
+      <footer> Prueba Tecnica Ecomsur: Sixto Tulio Mendoza Garcia</footer>
     </div>
   );
 }

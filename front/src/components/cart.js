@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
 import { clearCart,  addToCart, decreaseFromCart } from '../actions';
 import { Nav } from './navbar';
 
@@ -48,12 +49,14 @@ export function Cart() {
         <div 
         className='cart'
         key={product._id}>
-
+          <Link className="contenedor_name" to={`/detail/${product._id}`}>
           <h3 className='cart_name'>{product.name}</h3>
           <img 
           className='cart_image'
           src={`http://localhost:5000${product.image}`} 
           alt={product.name} />
+          </Link>
+
           <p className='cart_p'>
             Quantity: {product.cantidad}
           </p>
@@ -78,7 +81,7 @@ export function Cart() {
       ))}
       </div>
       
-
+      <footer> Prueba Tecnica Ecomsur: Sixto Tulio Mendoza Garcia</footer>
     </div>
   );
 }

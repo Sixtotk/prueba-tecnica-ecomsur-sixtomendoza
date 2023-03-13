@@ -118,6 +118,7 @@ export function Detail(props) {
           </div>
 
         </div>)}  
+        <footer> Prueba Tecnica Ecomsur: Sixto Tulio Mendoza Garcia</footer>
 
     </div>
   );

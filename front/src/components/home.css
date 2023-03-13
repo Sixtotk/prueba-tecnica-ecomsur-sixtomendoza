@@ -15,3 +15,10 @@
   grid-gap: 100px;
   align-content: center;
 }
+footer{
+  margin-top: 2%;
+  margin-bottom: 1%;
+  color: #1b004b;
+  font-size: 30px;
+  font-weight: 700;
+}
