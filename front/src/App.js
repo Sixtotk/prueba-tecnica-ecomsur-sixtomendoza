@@ -9,14 +9,11 @@ const App = () => {
 
   return (
     <BrowserRouter>
-    <div className="App">
       <Switch>
-      <Route exact path='/' component={Home} />
-      <Route exact path='/detail/:id' component={Detail}/>
-      <Route exact path='/cart' component={Cart}/>   
+        <Route exact path='/' component={Home} />
+        <Route exact path='/detail/:id' component={Detail}/>
+        <Route exact path='/cart' component={Cart}/>   
       </Switch>
-     
-    </div>
     </BrowserRouter>
   );
 };
